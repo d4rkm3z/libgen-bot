@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from dynaconf import Dynaconf
 import argparse
 import pprint
 
@@ -60,14 +59,18 @@ def aggregate_request_data(information_table):
     return output_data
 
 
+def search(query):
+    table = get_table(load_data(query))
+    result = aggregate_request_data(table)
+
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-q", "--query", help="Searching query for library", nargs="*", required=True)
     args = parser.parse_args()
-    search_str = args.query
-
-    table = get_table(load_data(search_str))
-    result = aggregate_request_data(table)
+    result = search(args.query)
 
     for i in result:
         pprint.pprint(i, depth=6)

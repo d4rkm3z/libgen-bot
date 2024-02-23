@@ -10,6 +10,8 @@ python = "^3.9"
 requests = "^2.31.0"
 bs4 = "^0.0.2"
 dynaconf = "^3.2.4"
+python-telegram-bot = "^20.8"
+numpy = "^1.26.4"
 
 
 [build-system]

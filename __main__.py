@@ -1,4 +1,4 @@
-from libgen_demo import __main__
+from libgen_demo import libgen_demo
 
 
 def main():
